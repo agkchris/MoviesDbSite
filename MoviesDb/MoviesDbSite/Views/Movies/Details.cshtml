@@ -1,0 +1,42 @@
+@model Movie
+
+@{
+    ViewData["Title"] = "Movie Details";
+}
+
+<div class="container mt-4">
+    <h1>Movie Details</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">@Model.Title</h2>
+            <div class="row mt-4">
+                <div class="col-md-8">
+                    <dl class="row">
+                        <dt class="col-sm-3">Description</dt>
+                        <dd class="col-sm-9">@Model.Description</dd>
+
+                        <dt class="col-sm-3">Release On</dt>
+                        <dd class="col-sm-9">@Model.ReleaseYear</dd>
+
+                        <dt class="col-sm-3">Genre</dt>
+                        <dd class="col-sm-9">@Model.Genre</dd>
+
+                        <dt class="col-sm-3">Director</dt>
+                        <dd class="col-sm-9">@Model.Director</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="btn-group">
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+                }
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

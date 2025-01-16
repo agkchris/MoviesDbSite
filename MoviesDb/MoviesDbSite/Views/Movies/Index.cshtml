@@ -1,0 +1,49 @@
+@model IEnumerable<Movie>
+
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<div class="container">
+    <h1>Movies</h1>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Add New Movie</a>
+    </p>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Title)</th>
+                <th>@Html.DisplayNameFor(model => model.ReleaseYear)</th>
+                <th>@Html.DisplayNameFor(model => model.Director)</th>
+                <th>@Html.DisplayNameFor(model => model.Genre)</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.ReleaseYear</td>
+                    <td>@item.Director</td>
+                    <td>@item.Genre</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
