@@ -50,21 +50,9 @@ The application will be available at `https://localhost:5001` or `http://localho
 2. **Configure IIS**
 
    a. Create Application Pool:
-   - Open IIS Manager
-   - Right-click on "Application Pools"
-   - Select "Add Application Pool"
-   - Name: "MoviesDbPool"
-   - .NET CLR Version: "No Managed Code"
-   - Managed pipeline mode: "Integrated"
-
+   
    b. Create Website:
-   - Right-click on "Sites"
-   - Select "Add Website"
-   - Site name: "MoviesDb"
-   - Physical path: [Path to your published files]
-   - Application pool: "MoviesDbPool"
-   - Binding: Configure your desired port/hostname
-
+   
 3. **Configure Application Settings**
 
    a. Update appsettings.json in the published folder:
@@ -105,13 +93,6 @@ The application will be available at `https://localhost:5001` or `http://localho
    - Verify URL rewrite module is installed
    - Check if web.config is present and correct
 
-### Security Considerations
-
-1. Always use HTTPS in production
-2. Keep connection strings secure
-3. Regularly update NuGet packages
-4. Use secure password policies
-5. Implement proper authentication and authorization
 
 ## API Documentation
 
